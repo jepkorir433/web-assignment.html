@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Webpage</title>
+    <style>
+        /* CSS styles for dynamic changes */
+        .highlight {
+            background-color: yellow;
+            color: red;
+        }
+        #container {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="header">Original Text</h1>
+    
+    <!-- Buttons for interaction -->
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="toggleStyle()">Toggle Style</button>
+    <button onclick="addRemoveElement()">Add/Remove Element</button>
+    
+    <div id="container"></div>
+
+    <script>
+        // Task 1: Change text dynamically
+        function changeText() {
+            const header = document.getElementById("header");
+            header.textContent = "New Dynamic Text!";
+        }
+
+        // Task 2: Toggle CSS styles
+        function toggleStyle() {
+            const header = document.getElementById("header");
+            header.classList.toggle("highlight");
+        }
+
+        // Task 3: Add/Remove element
+        let isElementAdded = false;
+        const newElement = document.createElement("p");
+        newElement.textContent = "I'm a dynamically added element!";
+
+        function addRemoveElement() {
+            const container = document.getElementById("container");
+            if (!isElementAdded) {
+                container.appendChild(newElement);
+            } else {
+                container.removeChild(newElement);
+            }
+            isElementAdded = !isElementAdded; // Toggle state
+        }
+    </script>
+</body>
+</html>
